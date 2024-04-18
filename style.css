@@ -1,0 +1,101 @@
+@font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
+@font-face { font-family: Ubuntu; src: url('assets/UbuntuMono-Bold.ttf');}
+@font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
+@font-face { font-family: Playfair; src: url('assets/PlayfairDisplay-Medium.ttf');}
+
+#showcase{
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    padding-top: 80px;   /* do not shrink - initial value: 1 */
+}
+
+
+@media (max-width: 576px) {
+    #showcase{
+        display: flex;
+        flex-direction: column;
+        padding-top: 80px;   /* do not shrink - initial value: 1 */
+    }
+
+    .web{
+        display: none;
+    }
+
+    .about img{
+        display: none;
+    }
+}
+
+.navbar-brand{
+    font-family: Nasal, ui-monospace;
+    text-transform: uppercase;
+    font-size: x-large;
+}
+
+.desc{
+    font-size: 40px;
+}
+
+.nav-item{
+    font-size: large;
+}
+
+.nav-item a{
+    font-size: large;
+}
+
+#hello{
+    font-size: 60px;
+}
+
+.work{
+    color: white;
+    font-family: Monzane, ui-monospace;
+}
+
+.boxes{
+    padding-bottom: 100px;
+}
+
+body, #nav-title{
+  background-color: #FEFCF2;
+  overflow-x: hidden;
+}
+
+#contact{
+    background-color: #31473A;
+    display: flex;
+    padding: 15px;
+}
+
+footer{
+    background-color: #31473A;
+    color: white;
+}
+
+#foot-name{
+    font-size: 15px;
+    margin: 0;
+}
+
+#icons{
+    text-align: right;
+}
+
+#icons a{
+    color: #FEFCF2;
+    padding: 1px;
+}
+
+#icons-1 a{
+    color: #31473A;
+}
+
+.about{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    font-size: 18px;
+    font-family: Playfair, ui-monospace;
+}
