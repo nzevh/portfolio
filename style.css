@@ -1,7 +1,7 @@
-@font-face { font-family: Nasal; src: url('../assets/Nasal.otf');}
-@font-face { font-family: Ubuntu; src: url('../assets/UbuntuMono-Bold.ttf');}
-@font-face { font-family: Monzane; src: url('../assets/new_monzane.otf');}
-@font-face { font-family: Playfair; src: url('../assets/PlayfairDisplay-Medium.ttf');}
+@font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
+@font-face { font-family: Ubuntu; src: url('assets/UbuntuMono-Bold.ttf');}
+@font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
+@font-face { font-family: Playfair; src: url('assets/PlayfairDisplay-Medium.ttf');}
 
 #showcase{
     display: flex;
