@@ -1,21 +1,50 @@
+:root {
+    --main-primary-color: #FEFCF2;
+    --main-secondary-color: #162823;
+    --main-text-color: #000000;
+    --main-background-img: url("assets/web.svg");
+}
+
+:root.dark-mode {
+    --main-primary-color: #000000;
+    --main-secondary-color: #162823;
+    --main-text-color: #FFFFFF;
+    --main-background-img: url("assets/web-2.png");
+}
+
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
-@font-face { font-family: Ubuntu; src: url('assets/UbuntuMono-Bold.ttf');}
 @font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
-@font-face { font-family: Playfair; src: url('assets/PlayfairDisplay-Medium.ttf');}
 
 #showcase{
     display: flex;
     flex-direction: row;
     height: 60vh;
-    padding-top: 80px;   /* do not shrink - initial value: 1 */
+    padding-top: 50px;   /* do not shrink - initial value: 1 */
+    background-image: var(--main-background-img);
+    color: var(--main-text-color);
 }
 
+.desc{
+    font-size: 6vw;
+    font-family: "Artifakt Element Light", ui-monospace;
+}
+
+.dark-bg, .navbar-toggler{
+    border: none;
+    border-radius: 20px;
+    background-color: var(--main-primary-color);
+}
+
+*{
+    scroll-behavior: smooth;
+}
 
 @media (max-width: 576px) {
     #showcase{
-        display: flex;
-        flex-direction: column;
-        padding-top: 80px;   /* do not shrink - initial value: 1 */
+        padding-top: 50px;   /* do not shrink - initial value: 1 */
+        padding-left: 25px;
+        padding-right: 25px;
+        background-image: url("assets/modul-1.png");
     }
 
     .web{
@@ -25,17 +54,19 @@
     .about img{
         display: none;
     }
+
+    .desc{
+        font-size: 10vw;
+    }
 }
 
 .navbar-brand{
     font-family: Nasal, ui-monospace;
     text-transform: uppercase;
-    font-size: x-large;
+    font-size: 20px;
+    color: var(--main-text-color);
 }
 
-.desc{
-    font-size: 40px;
-}
 
 .nav-item{
     font-size: large;
@@ -50,7 +81,7 @@
 }
 
 .work{
-    color: white;
+    color: var(--main-primary-color);
     font-family: Monzane, ui-monospace;
 }
 
@@ -59,24 +90,27 @@
 }
 
 body, #nav-title{
-  background-color: #FEFCF2;
+  background-color: var(--main-primary-color);
+  color: var(--main-secondary-color);
   overflow-x: hidden;
 }
 
 #contact{
-    background-color: #31473A;
+    background-color: var(--main-secondary-color);
     display: flex;
     padding: 15px;
 }
 
 footer{
-    background-color: #31473A;
-    color: white;
+    background-color: var(--main-secondary-color);
+    color: var(--main-primary-color);
 }
 
 #foot-name{
+    font-family: "Artifakt Element Light", ui-monospace;
     font-size: 15px;
     margin: 0;
+    color: white;
 }
 
 #icons{
@@ -84,18 +118,50 @@ footer{
 }
 
 #icons a{
-    color: #FEFCF2;
+    color: white;
     padding: 1px;
 }
 
-#icons-1 a{
-    color: #31473A;
-}
 
 .about{
     display: flex;
     flex-direction: row;
     gap: 50px;
     font-size: 18px;
-    font-family: Playfair, ui-monospace;
+    font-family: "Artifakt Element Light", ui-monospace;
+    color: var(--main-text-color);
+}
+
+.offcanvas-body{
+    font-size: 20pt;
+    font-family: "Artifakt Element Light", ui-monospace;
+}
+
+.offcanvas{
+    background-color: var(--main-primary-color);
+    color: var(--main-text-color);
+}
+
+#works:target ~ .content,
+#archive:target ~ .content,
+#about:target ~ .content,
+#contacts:target ~ .content {
+    display: none;
+}
+
+.content {
+    display: none;
+}
+
+#home:target,
+#about:target,
+#projects:target,
+#certifications:target {
+    display: block;
+}
+
+
+/* Default active section if no target is set */
+body:not(:has(:target)) #home {
+    display: block;
 }

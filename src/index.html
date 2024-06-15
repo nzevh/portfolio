@@ -11,42 +11,53 @@
     <title>Arinze</title>
     <link rel="icon" type="image/x-icon" href="assets/nzevhukwu.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
 
 </head>
 
 <body>
 
     <!--Navbar-->
-    <nav id="nav-title" class="navbar pt-2">
+    <nav id="nav-title" class="navbar ">
         <div class="container">
             <a href="https://thenzevhukwu.vercel.app/" class="navbar-brand">Arinze</a>
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#nav-menu"
-                    aria-controls="offcanvasRight">
-                <i class="bi bi-chevron-down" style="font-size: 30px"></i>
-            </button>
+            <div>
+                <button type="button"
+                        class="btn dark-bg">
+                    <i class="bi bi-sun"
+                       style="font-size: 30px"
+                       id="mode-icon"
+                       onclick="toggleMode()"></i>
+                </button>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#nav-menu"
+                        aria-controls="offcanvasRight">
+                    <i class="bi bi-chevron-left" style="font-size: 30px;"></i>
+                </button>
+            </div>
+
             <div class="offcanvas offcanvas-end" tabindex="-1" id="nav-menu" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="width: 60px"></button>
                 </div>
-                <div class="offcanvas-body" style="font-size: 20pt">
+                <div class="offcanvas-body">
                     <p>
-                        <a href="index.html" class="nav-link" target="_self">Home</a>
+                        <a href="#home" class="nav-link" target="_self" id="home-link">Home</a>
                     </p>
                     <p>
-                        <a href="about.html" class="nav-link" target="_self">About</a>
+                        <a href="#about" class="nav-link" target="_self" id="about-link">About</a>
                     </p>
                     <p>
-                        <a href="projects.html" class="nav-link" target="_self">Projects</a>
+                        <a href="#projects" class="nav-link" target="_self" id="projects-link">Projects</a>
                     </p>
                     <p>
-                        <a href="certifications.html" class="nav-link" target="_self">Certifications</a>
+                        <a href="#certifications" class="nav-link" target="_self" id="cert-link">Certifications</a>
                     </p>
                     <p>
-                        <a href="assets/file-name.docx"
+                        <a href="assets/resume.pdf"
                            download="CV - ARINZE" class="btn btn-outline-dark"
                            tabindex="-1" role="button" aria-disabled="true" style="font-size: 20pt; border-radius: 10pt">
                             <i class="bi bi-box-arrow-in-down"></i> Resume
@@ -57,44 +68,45 @@
         </div>
     </nav>
 
-    <!--Showcase-->
+    <section id="home" class="content">
 
-    <section>
-        <div class="container pb-5">
-            <div id="showcase">
-                <div>
-                    <p id="hello">Hello!</p>
-                    <p class="lead my-4 desc">
-                        I am Arinze, a front-end web developer based in Enugu State, Nigeria
-                    </p>
+        <!--Showcase-->
+        <section>
+            <div class="container g-0">
+                <div id="showcase">
+                    <div>
+                        <p id="hello">Hello!</p>
+                        <p class="lead my-4 desc">
+                            I am Arinze, a front-end web developer based in Enugu State, Nigeria
+                        </p>
+                    </div>
                 </div>
-                <div style="width: 150%">
-                    <img src="assets/web.svg" class="img-fluid web" alt="coding-image">
-                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="about" class="content">
+        <div class="container p-5 about">
+            <div>
+                <h1>About Me</h1>
+                <p>My name is Favour Arinze, Adimora. I'm based in Enugu State, Nigeria.</p>
+                <p>I'm a sophomore Mechatronics Engineering student at Bells University of Technology. My passion for technology led me to begin my coding journey in August 2023.</p>
+                <p>I started by diving into C++ and 3D modeling with Autodesk Fusion 360, which solidified my interest in the field.</p>
+                <p>Currently, I'm actively expanding my skillset by learning web development. This includes mastering core languages like HTML, CSS, and JavaScript, along with frameworks like Bootstrap and React JS.</p>
+                <p>I'm driven to apply my newfound knowledge to real-world projects and contribute meaningfully to the ever-changing tech landscape.</p>
+                <p>I believe this combined skillset will serve as a strong foundation for a future career in robotics and software engineering to make a lasting impact in these fields.</p>
+            </div>
+            <div>
+                <img src="assets/profile.jpg" alt="profile picture" style="width: 400px; height: 500px;border-radius: 20px">
             </div>
         </div>
     </section>
 
-<!--Skills-->
-
-    <section>
-        <div class="p-5 text-end">
-            <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">
-                <img src="assets/html-icon.png" alt="html-icon">
-            </a>
-            <a href="https://www.w3.org/TR/CSS/#css">
-                <img src="assets/css-icon.png" alt="css-icon">
-            </a>
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                <img src="assets/javascript-icon.png" alt="javascript-icon">
-            </a>
-            <a href="https://getbootstrap.com">
-                <img src="assets/bootstrap-icon.svg" alt="bootstrap-icon">
-            </a>
-            <a href="https://reactjs.org">
-                <img src="assets/react-icon.svg" alt="react-icon">
-            </a>
-        </div>
+    <section id="projects" class="content">
+        Projects
+    </section>
+    <section id="certifications" class="content">
+        Certifications
     </section>
 
     <footer class="fixed-bottom">
