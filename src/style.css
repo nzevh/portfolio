@@ -24,6 +24,10 @@
     color: var(--main-text-color);
 }
 
+.btn-close{
+    color: var(--main-text-color);
+}
+
 .desc{
     font-size: 6vw;
     font-family: "Artifakt Element Light", ui-monospace;

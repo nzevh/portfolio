@@ -29,10 +29,10 @@ function updateModeIcon() {
 
     if (isDarkMode) {
         modeIcon.classList.remove('bi-sun');
-        modeIcon.classList.add('bi-moon');
+        modeIcon.classList.add('bi-moon-fill');
         modeIcon.setAttribute('aria-label', 'Switch to Light Mode');
     } else {
-        modeIcon.classList.remove('bi-moon');
+        modeIcon.classList.remove('bi-moon-fill');
         modeIcon.classList.add('bi-sun');
         modeIcon.setAttribute('aria-label', 'Switch to Dark Mode');
     }
