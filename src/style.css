@@ -2,14 +2,6 @@
     --main-primary-color: #FEFCF2;
     --main-secondary-color: #162823;
     --main-text-color: #000000;
-    --main-background-img: url("assets/web.svg");
-}
-
-:root.dark-mode {
-    --main-primary-color: #000000;
-    --main-secondary-color: #162823;
-    --main-text-color: #FFFFFF;
-    --main-background-img: url("assets/web-2.png");
 }
 
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
@@ -20,7 +12,6 @@
     flex-direction: row;
     height: 60vh;
     padding-top: 50px;   /* do not shrink - initial value: 1 */
-    background-image: var(--main-background-img);
     color: var(--main-text-color);
 }
 
@@ -41,6 +32,7 @@
 
 *{
     scroll-behavior: smooth;
+    font-family: "Artifakt Element Light", ui-monospace;
 }
 
 @media (max-width: 576px) {
@@ -126,7 +118,6 @@ footer{
     padding: 1px;
 }
 
-
 .about{
     display: flex;
     flex-direction: row;
@@ -144,6 +135,16 @@ footer{
 .offcanvas{
     background-color: var(--main-primary-color);
     color: var(--main-text-color);
+}
+
+#certifications a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--main-primary-color);
+}
+
+#certifications{
+    background-color: var(--main-secondary-color);
 }
 
 #works:target ~ .content,

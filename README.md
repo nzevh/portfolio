@@ -15,7 +15,6 @@ I'm Adimora Favour Arinze, a Robotics and Mechatronics Engineer with a passion f
 </h2>
 
 <div align="center">
-  <img alt="Demo" src="assets/index-page.png"/>
   <img alt="Demo" src="src/assets/about-page.png" />
 </div>
 
