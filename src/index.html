@@ -17,8 +17,8 @@
 <body>
 
     <!--Navbar-->
-    <nav id="nav-title" class="navbar ">
-        <div class="container">
+    <nav id="nav-title" class="navbar pt-3 pb-3">
+        <div class="container" style="border: 0">
             <a href="https://thenzevhukwu.vercel.app/" class="navbar-brand">Arinze</a>
             <div>
                 <button class="navbar-toggler"
@@ -61,20 +61,16 @@
     </nav>
 
     <section id="home" class="content">
-
-        <!--Showcase-->
-        <section>
-            <div class="container g-0">
-                <div id="showcase">
-                    <div>
-                        <p id="hello">Hello!</p>
-                        <p class="lead my-4 desc">
-                            I am Arinze, a front-end web developer based in Enugu State, Nigeria
-                        </p>
-                    </div>
+        <div class="container">
+            <div id="showcase">
+                <div>
+                    <p id="hello">Hello!</p>
+                    <p class="lead my-4 desc">
+                        I am Arinze, a front-end web developer based in Enugu State, Nigeria
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
     </section>
 
     <section id="about" class="content">
@@ -94,31 +90,67 @@
         </div>
     </section>
 
-    <section id="projects" class="content">
-        Projects
+    <section id="projects" class="content pb-2">
+        <div class="container">
+            <div class="row g-5">
+                <div class="card text-bg-dark">
+                    <img src="assets/laptop-cooler.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card text-bg-dark">
+                    <img src="assets/laptop-cooler.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card text-bg-dark">
+                    <img src="assets/laptop-cooler.jpg" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
     <section id="certifications" class="content">
-        <div class="container-fluid p-3">
-            <h5>
-                <a href="https://www.coursera.org/account/accomplishments/certificate/WKSAA6GT5XN7">
-                    Modelling and Design for Mechanical Engineers with Autodesk Fusion360</a>
-            </h5>
-            <p>Issued August 2024</p>
-            <h5>
-                <a href="https://coursera.org/verify/NKNVKKD2YTR2">
-                    Introduction to Mechanical Engineering Design and Manufacturing with Fusion360</a>
-            </h5>
-            <p>Issued April 2024</p>
-            <h5>
-                <a href="https://coursera.org/verify/5ZPHHV6XY8LN">
-                    Autodesk Fusion360 Integrated CAD/CAM/CAE</a>
-            </h5>
-            <p>Issued June 2024</p>
-            <h5>
-                <a href="https://www.udemy.com/certificate/UC-447b6091-0b71-44d1-8c49-c3494e5445c8/">
-                    Fusion360 Beginners Course</a>
-            </h5>
-            <p>Issued December 2023</p>
+        <div class="container p-3">
+            <div class="card w-75 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Modelling and Design for Mechanical Engineers with Autodesk Fusion360</h5>
+                    <p class="card-text">Issued by Autodesk August 2024</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/WKSAA6GT5XN7" class="btn btn-success">Verify</a>
+                </div>
+            </div>
+            <div class="card w-75 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Introduction to Mechanical Engineering Design and Manufacturing with Fusion360</h5>
+                    <p class="card-text">Issued by Autodesk April 2024</p>
+                    <a href="https://coursera.org/verify/NKNVKKD2YTR2" class="btn btn-success">Verify</a>
+                </div>
+            </div>
+            <div class="card w-75 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Autodesk Fusion360 Integrated CAD/CAM/CAE</h5>
+                    <p class="card-text">Issued by Autodesk June 2024</p>
+                    <a href="https://coursera.org/verify/5ZPHHV6XY8LN" class="btn btn-success">Verify</a>
+                </div>
+            </div>
+            <div class="card w-75 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Fusion360 Beginners Course</h5>
+                    <p class="card-text">Issued by Udemy December 2023</p>
+                    <a href="https://www.udemy.com/certificate/UC-447b6091-0b71-44d1-8c49-c3494e5445c8/" class="btn btn-success">Verify</a>
+                </div>
+            </div>
         </div>
     </section>
 
