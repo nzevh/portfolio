@@ -6,6 +6,7 @@
 
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
 @font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
+@font-face { font-family: Rabbit; src: url('assets/JazzyRabbit_Remake.ttf');}
 
 .btn-close{
     color: var(--main-text-color);
@@ -13,7 +14,7 @@
 
 .desc{
     font-size: 6vw;
-    font-family: "Artifakt Element Light", ui-monospace;
+    font-family: Rabbit;
 }
 
 .navbar-toggler{
@@ -24,7 +25,6 @@
 
 *{
     scroll-behavior: smooth;
-    font-family: "Artifakt Element Light", ui-monospace;
 }
 
 .about{
@@ -74,6 +74,7 @@
 
 #hello{
     font-size: 60px;
+    font-family: Rabbit;
 }
 
 .boxes{
