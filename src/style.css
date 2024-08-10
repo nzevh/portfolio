@@ -4,6 +4,16 @@
     --main-text-color: #000000;
 }
 
+#preloader {
+    background: var(--main-secondary-color) url("assets/loader.gif") no-repeat center center;
+    background-size: 10%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 50;
+}
+
+
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
 @font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
 
@@ -25,6 +35,15 @@
 *{
     scroll-behavior: smooth;
     font-family: "Artifakt Element Light", ui-monospace;
+}
+
+.about{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    font-size: 18px;
+    font-family: "Artifakt Element Light", ui-monospace;
+    color: var(--main-text-color);
 }
 
 @media (max-width: 576px) {
@@ -60,11 +79,6 @@
 
 #hello{
     font-size: 60px;
-}
-
-.work{
-    color: var(--main-primary-color);
-    font-family: Monzane, ui-monospace;
 }
 
 .boxes{
@@ -104,15 +118,6 @@ footer{
     padding: 1px;
 }
 
-.about{
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    font-size: 18px;
-    font-family: "Artifakt Element Light", ui-monospace;
-    color: var(--main-text-color);
-}
-
 .offcanvas-body{
     font-size: 20pt;
     font-family: "Artifakt Element Light", ui-monospace;
@@ -131,17 +136,9 @@ footer{
 
 .card {
     box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     background-color: var(--main-secondary-color);
     color: white;
-}
-
-#works:target ~ .content,
-#archive:target ~ .content,
-#about:target ~ .content,
-#contacts:target ~ .content {
-    display: none;
 }
 
 .content {
@@ -154,7 +151,6 @@ footer{
 #certifications:target {
     display: block;
 }
-
 
 /* Default active section if no target is set */
 body:not(:has(:target)) #home {

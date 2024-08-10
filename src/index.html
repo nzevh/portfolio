@@ -16,6 +16,8 @@
 
 <body>
 
+<div id="preloader"></div>
+
     <!--Navbar-->
     <nav id="nav-title" class="navbar pt-3 pb-3">
         <div class="container" style="border: 0">
@@ -33,7 +35,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="nav-menu" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="width: 60px; background-color: white; border: none;"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="width: 60px;"></button>
                 </div>
                 <div class="offcanvas-body">
                     <p>
@@ -152,7 +154,7 @@
         </div>
     </section>
 
-    <footer class="fixed-bottom">
+    <footer class="">
         <div class="row" id="contact">
             <div class="col">
                 <p class="lead" id="foot-name">&copy; 2024 thenzevhukwu</p>
@@ -166,6 +168,12 @@
         </div>
     </footer>
 
+    <script>
+        const loader = document.getElementById("preloader");
+        window.eventListeners("load", function(){
+            loader.style.display = "none";
+        })
+    </script>
 
 </body>
 </html>
