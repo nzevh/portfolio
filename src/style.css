@@ -49,6 +49,11 @@
     .desc{
         font-size: 10vw;
     }
+
+    * {
+        scroll-behavior: smooth;
+        font-family: "Artifakt Element Light", ui-monospace;
+    }
 }
 
 .navbar-brand{
