@@ -4,16 +4,6 @@
     --main-text-color: #000000;
 }
 
-#preloader {
-    background: var(--main-secondary-color) url("assets/loader.gif") no-repeat center center;
-    background-size: 10%;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    z-index: 50;
-}
-
-
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
 @font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
 
