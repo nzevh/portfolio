@@ -7,14 +7,6 @@
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
 @font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
 
-#showcase{
-    display: flex;
-    flex-direction: row;
-    height: 60vh;
-    padding-top: 50px;   /* do not shrink - initial value: 1 */
-    color: var(--main-text-color);
-}
-
 .btn-close{
     color: var(--main-text-color);
 }
@@ -24,7 +16,7 @@
     font-family: "Artifakt Element Light", ui-monospace;
 }
 
-.dark-bg, .navbar-toggler{
+.navbar-toggler{
     border: none;
     border-radius: 20px;
     background-color: var(--main-primary-color);
@@ -36,19 +28,13 @@
 }
 
 @media (max-width: 576px) {
-    #showcase{
-        padding-top: 50px;   /* do not shrink - initial value: 1 */
-        padding-left: 25px;
-        padding-right: 25px;
-        background-image: url("assets/modul-1.png");
-    }
-
-    .web{
-        display: none;
-    }
-
     .about img{
         display: none;
+    }
+
+    .about{
+        display: block;
+        margin: 0;
     }
 
     .desc{
