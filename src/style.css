@@ -6,7 +6,7 @@
 
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
 @font-face { font-family: Monzane; src: url('assets/new_monzane.otf');}
-@font-face { font-family: Rabbit; src: url('assets/JazzyRabbit_Remake.ttf');}
+@font-face { font-family: Artifakt; src: url('assets/ArtifaktElement-Light.ttf');}
 
 .btn-close{
     color: var(--main-text-color);
@@ -14,7 +14,7 @@
 
 .desc{
     font-size: 6vw;
-    font-family: Rabbit;
+    font-family: Artifakt;
 }
 
 .navbar-toggler{
@@ -25,6 +25,7 @@
 
 *{
     scroll-behavior: smooth;
+    font-family: Artifakt;
 }
 
 .about{
@@ -32,7 +33,7 @@
     flex-direction: row;
     gap: 50px;
     font-size: 18px;
-    font-family: "Artifakt Element Light", ui-monospace;
+    font-family: Artifakt, ui-monospace;
     color: var(--main-text-color);
 }
 
@@ -52,7 +53,7 @@
 
     * {
         scroll-behavior: smooth;
-        font-family: "Artifakt Element Light", ui-monospace;
+        font-family: Artifakt, ui-monospace;
     }
 }
 
@@ -74,7 +75,6 @@
 
 #hello{
     font-size: 60px;
-    font-family: Rabbit;
 }
 
 .boxes{
@@ -99,7 +99,7 @@ footer{
 }
 
 #foot-name{
-    font-family: "Artifakt Element Light", ui-monospace;
+    font-family: Artifakt, ui-monospace;
     font-size: 15px;
     margin: 0;
     color: white;
@@ -116,7 +116,7 @@ footer{
 
 .offcanvas-body{
     font-size: 20pt;
-    font-family: "Artifakt Element Light", ui-monospace;
+    font-family: Artifakt, ui-monospace;
 }
 
 .offcanvas{
