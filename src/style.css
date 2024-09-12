@@ -7,12 +7,13 @@
 @font-face { font-family: Nasal; src: url('assets/Nasal.otf');}
 @font-face { font-family: ArtifaktElement; src: url('assets/ArtifaktElement-Light.ttf');}
 
+
 .btn-close{
     color: var(--main-text-color);
 }
 
 .desc{
-    font-size: 6vw;
+    font-size: 85px;
     font-family: ArtifaktElement, ui-monospace;
 }
 
@@ -83,10 +84,9 @@
 body, #nav-title{
   background-color: var(--main-primary-color);
   color: var(--main-secondary-color);
-  overflow-x: hidden;
 }
 
-#contact{
+.contact{
     background-color: var(--main-secondary-color);
     display: flex;
     padding: 15px;
@@ -97,18 +97,18 @@ footer{
     color: var(--main-primary-color);
 }
 
-#foot-name{
+.foot-name{
     font-family: ArtifaktElement, ui-monospace;
     font-size: 15px;
     margin: 0;
     color: white;
 }
 
-#icons{
+.icons{
     text-align: right;
 }
 
-#icons a{
+.icons a{
     color: white;
     padding: 1px;
 }
