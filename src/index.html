@@ -11,161 +11,163 @@
     <title>Arinze</title>
     <link rel="icon" type="image/x-icon" href="assets/nzevhukwu.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
 </head>
 
 <body>
-
-    <!--Navbar-->
-    <nav id="nav-title" class="navbar p-2">
-        <div class="container">
-            <a href="https://thenzevhukwu.vercel.app/" class="navbar-brand">Arinze</a>
-            <div>
-                <button class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#nav-menu"
-                        aria-controls="offcanvasRight">
-                    <i class="bi bi-chevron-down" style="font-size: 50px;"></i>
-                </button>
+<!--Navbar-->
+<nav id="nav-title" class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a href="https://thenzevhukwu.vercel.app/" class="navbar-brand fw-bold">Arinze</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="nav-menu" aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="width: 60px;"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <p>
-                        <a href="#home" class="nav-link" target="_self" id="home-link">Home</a>
-                    </p>
-                    <p>
-                        <a href="#about" class="nav-link" target="_self" id="about-link">About</a>
-                    </p>
-                    <p>
-                        <a href="#projects" class="nav-link" target="_self" id="projects-link">Projects</a>
-                    </p>
-                    <p>
-                        <a href="#certifications" class="nav-link" target="_self" id="cert-link">Certifications</a>
-                    </p>
-                    <p>
-                        <a href="assets/resume.pdf"
-                           download="CV - ARINZE" class="btn btn-outline-dark"
-                           tabindex="-1" role="button" aria-disabled="true" style="font-size: 20pt; border-radius: 10pt">
+            <div class="offcanvas-body">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item">
+                        <a href="assets/resume.pdf" download="CV - ARINZE" class="btn btn-outline-light nav-link">
                             <i class="bi bi-box-arrow-in-down"></i> Resume
                         </a>
-                    </p>
-                </div>
-                <footer class="fixed-bottom">
-                    <div class="row contact">
-                        <div class="col">
-                            <p class="foot-name">&copy; 2024 thenzevhukwu</p>
-                        </div>
-                        <div class="col icons">
-                            <a href="mailto:favourdimora43@gmail.com"><i class="bi bi-envelope"></i></a>
-                            <a href="https://wa.me/+2348158145051"><i class="bi bi-whatsapp"></i></a>
-                            <a href="https://x.com/thenzevhukwu/"><i class="bi bi-twitter-x"></i></a>
-                            <a href="https://www.linkedin.com/in/favour-adimora/"><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </footer>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-outline-light nav-link">Hire Me</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section id="home" class="content">
-        <div class="container">
-            <div>
-                <p id="hello">Hello!</p>
-                <p class="desc">
-                    I am Arinze, a Mechatronics Engineering Student based in Enugu State, Nigeria
-                </p>
+<section id="home" class="content text-white text-center position-relative" style="overflow: hidden; height: 100vh;">
+    <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="position-relative text-dark">
+            <h1 style="font-size: 6rem; font-weight: 900; letter-spacing: -2px; ">Mechatronics<br>Systems Engineer</h1>
+            <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8rem; font-weight: bold; color: #000; opacity: 0.05;">ARINZE</h1>
+            <img src="assets/profile-2.png" alt="Profile Picture" style="position: absolute; bottom: 0; right: 50%; transform: translate(50%, 20%); width: 450px; border-radius: 50%; border: 5px solid #fff; z-index: 1; opacity: 0.8;">
+            <i class="bi bi-chevron-down" style="font-size: 2rem;"></i>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h1 class="fw-bold">About Me</h1>
+                <p>My name is Favour Arinze Adimora. I'm based in Enugu State, Nigeria.</p>
+                <p>I am a sophomore Mechatronics Engineering student at Bells University of Technology. My passion for technology led me to start coding in August 2023, diving into C++ and 3D modeling with Autodesk Fusion 360.</p>
+                <p>Currently, I am actively learning web development, mastering HTML, CSS, JavaScript, Bootstrap, and React JS. My goal is to use this skillset to impact the fields of robotics and software engineering.</p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="assets/profile.jpg" alt="profile picture" class="img-fluid rounded shadow-lg">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="about" class="content">
-        <div class="container pt-3 about">
-            <div>
-                <h1>About Me</h1>
-                <p>My name is Favour Arinze, Adimora. I'm based in Enugu State, Nigeria.</p>
-                <p>I'm a sophomore Mechatronics Engineering student at Bells University of Technology. My passion for technology led me to begin my coding journey in August 2023.</p>
-                <p>I started by diving into C++ and 3D modeling with Autodesk Fusion 360, which solidified my interest in the field.</p>
-                <p>Currently, I'm actively expanding my skillset by learning web development. This includes mastering core languages like HTML, CSS, and JavaScript, along with frameworks like Bootstrap and React JS.</p>
-                <p>I'm driven to apply my newfound knowledge to real-world projects and contribute meaningfully to the ever-changing tech landscape.</p>
-                <p>I believe this combined skillset will serve as a strong foundation for a future career in robotics and software engineering to make a lasting impact in these fields.</p>
-            </div>
-            <div>
-                <img src="assets/profile.jpg" alt="profile picture" style="width: 400px; height: 500px;border-radius: 20px">
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="content pb-2">
-        <div class="container">
-            <div class="row g-5">
-                <div class="card text-bg-dark">
-                    <img src="assets/laptop-cooler.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+<section id="projects" class="content py-5 bg-light">
+    <div class="container">
+        <h1 class="text-center mb-5">Projects</h1>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Laptop Cooler Design</h5>
+                        <canvas id="model1" class="w-100" style="height: 200px;"></canvas>
+                        <p class="card-text mt-3">Designed and simulated a custom laptop cooler for heat dissipation efficiency.</p>
                     </div>
                 </div>
-                <div class="card text-bg-dark">
-                    <img src="assets/laptop-cooler.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Portfolio Website</h5>
+                        <canvas id="model2" class="w-100" style="height: 200px;"></canvas>
+                        <p class="card-text mt-3">Created a responsive portfolio website showcasing skills and projects.</p>
                     </div>
                 </div>
-                <div class="card text-bg-dark">
-                    <img src="assets/laptop-cooler.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Robotic Arm Prototype</h5>
+                        <canvas id="model3" class="w-100" style="height: 200px;"></canvas>
+                        <p class="card-text mt-3">Designed a 3D model of a robotic arm with articulated joints.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="certifications" class="content">
-        <div class="container p-3">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Modelling and Design for Mechanical Engineers with Autodesk Fusion360</h5>
-                    <p class="card-text">Issued by Autodesk August 2024</p>
-                    <a href="https://www.coursera.org/account/accomplishments/certificate/WKSAA6GT5XN7" class="btn btn-success">Verify</a>
+<section id="certifications" class="content py-5">
+    <div class="container">
+        <h1 class="text-center mb-5">Certifications</h1>
+        <div class="row g-4">
+            <div class="col-lg-6 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Modeling and Design for Mechanical Engineers with Autodesk Fusion360</h5>
+                        <p class="card-text">Issued by Autodesk - August 2024</p>
+                        <a href="https://www.coursera.org/account/accomplishments/certificate/WKSAA6GT5XN7" class="btn btn-primary">Verify</a>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Introduction to Mechanical Engineering Design and Manufacturing with Fusion360</h5>
-                    <p class="card-text">Issued by Autodesk April 2024</p>
-                    <a href="https://coursera.org/verify/NKNVKKD2YTR2" class="btn btn-success">Verify</a>
+            <div class="col-lg-6 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Introduction to Mechanical Engineering Design and Manufacturing with Fusion360</h5>
+                        <p class="card-text">Issued by Autodesk - April 2024</p>
+                        <a href="https://coursera.org/verify/NKNVKKD2YTR2" class="btn btn-primary">Verify</a>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Autodesk Fusion360 Integrated CAD/CAM/CAE</h5>
-                    <p class="card-text">Issued by Autodesk June 2024</p>
-                    <a href="https://coursera.org/verify/5ZPHHV6XY8LN" class="btn btn-success">Verify</a>
+            <div class="col-lg-6 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Autodesk Fusion360 Integrated CAD/CAM/CAE</h5>
+                        <p class="card-text">Issued by Autodesk - June 2024</p>
+                        <a href="https://coursera.org/verify/5ZPHHV6XY8LN" class="btn btn-primary">Verify</a>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Fusion360 Beginners Course</h5>
-                    <p class="card-text">Issued by Udemy December 2023</p>
-                    <a href="https://www.udemy.com/certificate/UC-447b6091-0b71-44d1-8c49-c3494e5445c8/" class="btn btn-success">Verify</a>
+            <div class="col-lg-6 col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Fusion360 Beginners Course</h5>
+                        <p class="card-text">Issued by Udemy - December 2023</p>
+                        <a href="https://www.udemy.com/certificate/UC-447b6091-0b71-44d1-8c49-c3494e5445c8/" class="btn btn-primary">Verify</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<footer class="py-3 bg-dark text-white text-center">
+    <div class="container d-flex justify-content-between align-items-center">
+        <p class="mb-0">&copy; 2024 Arinze. All Rights Reserved.</p>
+        <div class="icons">
+            <a href="mailto:favourdimora43@gmail.com"><i class="bi bi-envelope"></i></a>
+            <a href="https://wa.me/+2348158145051"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://x.com/thenzevhukwu/"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/in/favour-adimora/"><i class="bi bi-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+
 
 </body>
 </html>
-
-
