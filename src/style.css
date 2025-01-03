@@ -232,8 +232,3 @@ canvas {
 body:not(:has(:target)) #home {
     display: block;
 }
-
-
-
-
-
