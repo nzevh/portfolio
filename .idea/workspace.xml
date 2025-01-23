@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97340914-9fd4-465d-9310-6aca812612c8" name="Changes" comment="Added script.js file">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/portfolio.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/build/three.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/NOTICE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/droid_sans_bold.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/droid_sans_mono_regular.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/droid_sans_regular.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/droid_serif_bold.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/droid/droid_serif_regular.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/gentilis_bold.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/gentilis_regular.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/helvetiker_bold.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/helvetiker_regular.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/optimer_bold.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/optimer_regular.typeface.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/fonts/ttf/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/ammo.wasm.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/basis/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/basis/basis_transcoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/draco/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/draco/draco_decoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/draco/gltf/draco_decoder.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/examples/jsm/libs/rhino3dm/rhino3dm.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/three/src/nodes/materialx/DISCLAIMER.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/ArtifaktElement-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/JazzyRabbit_Remake.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Nasal.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/about-page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/laptop-cooler.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/nzevhukwu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/profile-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/resume.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JSX File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+        <option value="package.json" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;thenzevhukwu&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:thenzevhukwu/portfolio.git&quot;,
+    &quot;accountId&quot;: &quot;23a25c9a-b864-48aa-be28-fe75968820c9&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2kHkPHg3wdAbth9Os7KbrMJ4f1U" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Arinze/Documents/FAVOUR ARINZE ADIMORA/bolt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97340914-9fd4-465d-9310-6aca812612c8" name="Changes" comment="" />
+      <created>1722947865528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722947865528</updated>
+      <workItem from="1722947866105" duration="11437000" />
+      <workItem from="1723008318706" duration="1559000" />
+      <workItem from="1723119139386" duration="17845000" />
+      <workItem from="1723274622039" duration="8760000" />
+      <workItem from="1723287654740" duration="11135000" />
+      <workItem from="1724496146921" duration="735000" />
+      <workItem from="1725962028269" duration="323000" />
+      <workItem from="1726117055392" duration="3546000" />
+      <workItem from="1728706393421" duration="898000" />
+      <workItem from="1728766193791" duration="53000" />
+      <workItem from="1730992343070" duration="33000" />
+      <workItem from="1732956936620" duration="654000" />
+      <workItem from="1733231990869" duration="35000" />
+      <workItem from="1735114438796" duration="686000" />
+      <workItem from="1735238162519" duration="9931000" />
+      <workItem from="1735314768998" duration="22719000" />
+      <workItem from="1735489557759" duration="1975000" />
+      <workItem from="1735853564057" duration="2456000" />
+      <workItem from="1736300907041" duration="76000" />
+      <workItem from="1737551062522" duration="5263000" />
+      <workItem from="1737620132973" duration="11921000" />
+    </task>
+    <task id="LOCAL-00001" summary="delete">
+      <option name="closed" value="true" />
+      <created>1722955223392</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722955223392</updated>
+    </task>
+    <task id="LOCAL-00002" summary="updated">
+      <option name="closed" value="true" />
+      <created>1722955257340</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722955257340</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated certifications">
+      <option name="closed" value="true" />
+      <created>1723164394271</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723164394271</updated>
+    </task>
+    <task id="LOCAL-00004" summary="updated certifications">
+      <option name="closed" value="true" />
+      <created>1723164905410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723164905410</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updated about section">
+      <option name="closed" value="true" />
+      <created>1723275628291</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723275628291</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added preloader">
+      <option name="closed" value="true" />
+      <created>1723280919355</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723280919355</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed preloader">
+      <option name="closed" value="true" />
+      <created>1723281230311</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723281230311</updated>
+    </task>
+    <task id="LOCAL-00008" summary="removed preloader">
+      <option name="closed" value="true" />
+      <created>1723287750846</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723287750846</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added new font">
+      <option name="closed" value="true" />
+      <created>1723289926212</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1723289926212</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added new font">
+      <option name="closed" value="true" />
+      <created>1723368586263</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1723368586263</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added new font">
+      <option name="closed" value="true" />
+      <created>1723369485449</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1723369485449</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated media query">
+      <option name="closed" value="true" />
+      <created>1723369611334</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1723369611334</updated>
+    </task>
+    <task id="LOCAL-00013" summary="updated home">
+      <option name="closed" value="true" />
+      <created>1726117983559</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726117983559</updated>
+    </task>
+    <task id="LOCAL-00014" summary="reduced padding">
+      <option name="closed" value="true" />
+      <created>1726118149985</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1726118149985</updated>
+    </task>
+    <task id="LOCAL-00015" summary="changed ui">
+      <option name="closed" value="true" />
+      <created>1735855565131</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1735855565131</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixed size issues">
+      <option name="closed" value="true" />
+      <created>1735877643714</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1735877643714</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Made the offcanvas automatically close on click of a link">
+      <option name="closed" value="true" />
+      <created>1735878499300</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1735878499300</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added script.js file">
+      <option name="closed" value="true" />
+      <created>1735878581589</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1735878581589</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="delete" />
+    <MESSAGE value="updated" />
+    <MESSAGE value="updated certifications" />
+    <MESSAGE value="updated about section" />
+    <MESSAGE value="added preloader" />
+    <MESSAGE value="fixed preloader" />
+    <MESSAGE value="removed preloader" />
+    <MESSAGE value="added new font" />
+    <MESSAGE value="updated media query" />
+    <MESSAGE value="updated home" />
+    <MESSAGE value="reduced padding" />
+    <MESSAGE value="changed ui" />
+    <MESSAGE value="fixed size issues" />
+    <MESSAGE value="Made the offcanvas automatically close on click of a link" />
+    <MESSAGE value="Added script.js file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added script.js file" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
