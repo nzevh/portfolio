@@ -45,7 +45,7 @@ const ModelViewer = ({ modelUrl, scale = 0.1 }: ModelViewerProps) => {
 
           {/* Display model with textures and colors, or a simple cube if not loaded */}
           {model ? (
-            <primitive object={model} scale={[scale, scale, scale]} />
+            <primitive object={model} scale={[scale, scale, scale]} rotation={[Math.PI / 2, Math.PI / 2, 0]} />
           ) : (
             <Box args={[2, 2, 2]}>
               <meshStandardMaterial color="#2563eb" metalness={0.3} roughness={0.4} />
