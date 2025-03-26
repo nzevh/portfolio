@@ -20,6 +20,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    chunkSizeWarningLimit: 10000, // Set your custom chunk size limit here in KB
+    chunkSizeWarningLimit: 100000, // Set your custom chunk size limit here in KB
   },
 }));

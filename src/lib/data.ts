@@ -1,4 +1,3 @@
-
 export type ProjectCategory = 'mechatronics' | 'software' | 'ai-ml';
 
 export interface Project {
@@ -22,7 +21,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/arm.png',
     technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: '/nean.obj',
+    modelUrl: '/models/nean.glb', // Update this path to your actual 3D model
     featured: true
   },
   {
@@ -32,7 +31,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['ESP32', 'IMU Sensors', 'Embedded Systems', 'Control Theory'],
-    modelUrl: 'sample-model-url',
+    modelUrl: '/models/robot.glb', // Update this path to your actual 3D model
   },
   {
     id: 'mechatronics-prosthetic',
@@ -41,7 +40,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['CAD Design', 'Microcontrollers', 'Servo Motors', 'EMG Sensors'],
-    modelUrl: 'sample-model-url',
+    modelUrl: '/models/hand.glb', // Update this path to your actual 3D model
   },
   {
     id: 'software-portfolio',
