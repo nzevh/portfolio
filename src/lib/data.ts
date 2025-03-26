@@ -1,4 +1,3 @@
-
 export type ProjectCategory = 'mechatronics' | 'software' | 'ai-ml';
 
 export interface Project {
@@ -22,7 +21,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: '/robot.obj',
+    modelUrl: '/models/robot.obj',
     featured: true
   },
   {
@@ -41,7 +40,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['CAD Design', 'Microcontrollers', 'Servo Motors', 'EMG Sensors'],
-    modelUrl: 'sample-model-url',
+    modelUrl: 'prosthetic-hand.glb', // Just the filename, path is handled by ModelViewer
   },
   {
     id: 'software-portfolio',
