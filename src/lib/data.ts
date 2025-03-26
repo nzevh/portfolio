@@ -1,3 +1,4 @@
+
 export type ProjectCategory = 'mechatronics' | 'software' | 'ai-ml';
 
 export interface Project {
@@ -21,7 +22,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: '/models/nean.obj', // Updated to include /models/ prefix
+    modelUrl: 'nean.obj',
     featured: true
   },
   {

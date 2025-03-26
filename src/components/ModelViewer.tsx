@@ -1,35 +1,35 @@
-import { useRef, useState, Suspense } from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
+import { useRef, useState, useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Box, useGLTF } from '@react-three/drei';
+import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 interface ModelViewerProps {
   modelUrl: string;
 }
 
-const Model = ({ modelUrl }: { modelUrl: string }) => {
-  // Handle both .obj and .glb/.gltf files
-  const fileExtension = modelUrl.split('.').pop()?.toLowerCase();
-  
-  if (fileExtension === 'obj') {
-    const obj = useLoader(OBJLoader, modelUrl);
-    return <primitive object={obj} scale={1} />;
-  } else {
-    const gltf = useLoader(GLTFLoader, modelUrl);
-    return <primitive object={gltf.scene} scale={1} />;
-  }
-}
-
 const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [model, setModel] = useState<GLTF | null>(null);
 
-  // Simulate loading
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 1000);
+  // Load the GLTF model from the provided URL
+  useEffect(() => {
+    if (modelUrl) {
+      const loader = new GLTFLoader();
+      loader.load(
+        modelUrl,
+        (gltf) => {
+          setModel(gltf);
+          setIsLoading(false);
+        },
+        undefined,
+        (error) => {
+          console.error('Error loading model:', error);
+          setIsLoading(false); // Still stop loading if there's an error
+        }
+      );
+    }
+  }, [modelUrl]);
 
   return (
     <div className="relative w-full h-full">
@@ -37,19 +37,20 @@ const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[1, 1, 1]} intensity={1} />
-          
-          <Suspense fallback={null}>
-            <Model modelUrl={modelUrl} />
-          </Suspense>
-          
-          <OrbitControls 
-            enableDamping 
-            dampingFactor={0.05} 
-            rotateSpeed={0.5}
-          />
+
+          {/* Show model if loaded, otherwise show a simple 3D cube as a placeholder */}
+          {model ? (
+            <primitive object={model.scene} scale={0.5} />
+          ) : (
+            <Box args={[2, 2, 2]}>
+              <meshStandardMaterial color="#2563eb" metalness={0.3} roughness={0.4} />
+            </Box>
+          )}
+
+          <OrbitControls enableDamping dampingFactor={0.05} rotateSpeed={0.5} />
         </Canvas>
       </div>
-      
+
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-background/80">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
