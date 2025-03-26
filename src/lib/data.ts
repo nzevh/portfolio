@@ -103,11 +103,10 @@ export const skills = [
     category: 'Mechatronics Engineering',
     items: [
       'Robotics Design & Development',
-      'Embedded Systems',
       'Control Systems',
       'CAD/CAM',
-      'Circuit Design',
       'IoT Integration',
+      'Simulations',
       'Sensor Integration',
       'Prototyping'
     ]
@@ -115,14 +114,12 @@ export const skills = [
   {
     category: 'Software Engineering',
     items: [
-      'Full-Stack Development',
+      'Native app Development',
       'React/Next.js',
       'TypeScript',
       'Node.js',
       'RESTful APIs',
       'Database Design',
-      'DevOps',
-      'UI/UX Design'
     ]
   },
   {
