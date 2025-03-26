@@ -21,7 +21,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['Arduino', 'Autodesk Fusion', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: '/models/nean.obj',
+    modelUrl: 'models/nean.obj',
     featured: true
   },
   {
