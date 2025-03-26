@@ -36,7 +36,7 @@ const ModelViewer = ({ modelUrl, scale = 0.1 }: ModelViewerProps) => {
     <div className="relative w-full h-full bg-gray-200"> {/* Background color added here */}
       <div ref={containerRef} className="w-full h-full">
         <Canvas
-          camera={{ position: [0, 0, 3], fov: 40 }}
+          camera={{ position: [0, 0, 3], fov: 200 }}
           gl={{ antialias: true }}
           style={{ background: '#333333' }} // Light gray background for the 3D canvas
         >
