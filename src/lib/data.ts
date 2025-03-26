@@ -40,7 +40,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['CAD Design', 'Microcontrollers', 'Servo Motors', 'EMG Sensors'],
-    modelUrl: '/models/hand.glb', // Update this path to your actual 3D model
+    modelUrl: '/models/slicer.glb', // Update this path to your actual 3D model
   },
   {
     id: 'software-portfolio',
