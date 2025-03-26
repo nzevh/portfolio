@@ -20,9 +20,9 @@ export const projects: Project[] = [
     title: 'Autonomous Robot',
     description: 'A fully autonomous robot designed for warehouse navigation with obstacle avoidance and path planning capabilities.',
     category: 'mechatronics',
-    image: '/placeholder.svg',
+    image: '/arm.png',
     technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: 'nean.obj',
+    modelUrl: '/nean.obj',
     featured: true
   },
   {
