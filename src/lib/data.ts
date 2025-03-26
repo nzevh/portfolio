@@ -16,12 +16,12 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'mechatronics-robot',
-    title: 'Autonomous Robot',
-    description: 'A fully autonomous robot designed for warehouse navigation with obstacle avoidance and path planning capabilities.',
+    title: 'Robotic Arm',
+    description: 'A fully autonomous robotic arm designed for warehouse navigation with obstacle avoidance and path planning capabilities.',
     category: 'mechatronics',
     image: '/placeholder.svg',
-    technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: '/models/robot.obj',
+    technologies: ['Arduino', 'Autodesk Fusion', 'ROS', 'C++', 'Sensor Fusion'],
+    modelUrl: '/models/nean.obj',
     featured: true
   },
   {
