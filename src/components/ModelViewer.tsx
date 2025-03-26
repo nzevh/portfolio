@@ -32,9 +32,13 @@ const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
   }, [modelUrl]);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full bg-gray-200"> {/* Background color added here */}
       <div ref={containerRef} className="w-full h-full">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          gl={{ antialias: true }}
+          style={{ background: '#d1d5db' }} // Light gray background for the 3D canvas
+        >
           <ambientLight intensity={0.5} />
           <directionalLight position={[1, 1, 1]} intensity={1} />
 
