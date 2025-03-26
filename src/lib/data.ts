@@ -29,16 +29,16 @@ export const projects: Project[] = [
     title: 'Smart Drone System',
     description: 'A custom-built drone with advanced stabilization and autonomous flight capabilities for aerial surveying.',
     category: 'mechatronics',
-    image: '/placeholder.svg',
+    image: '/slicer.png',
     technologies: ['ESP32', 'IMU Sensors', 'Embedded Systems', 'Control Theory'],
     modelUrl: '/models/robot.glb', // Update this path to your actual 3D model
   },
   {
-    id: 'mechatronics-prosthetic',
-    title: 'Biomechanical Prosthetic Hand',
+    id: 'mechatronics-slicer',
+    title: 'Onion Slicer Machine',
     description: 'A low-cost prosthetic hand with advanced grip patterns and natural motion control.',
     category: 'mechatronics',
-    image: '/placeholder.svg',
+    image: '/slicer.png',
     technologies: ['CAD Design', 'Microcontrollers', 'Servo Motors', 'EMG Sensors'],
     modelUrl: '/models/slicer.glb', // Update this path to your actual 3D model
   },
