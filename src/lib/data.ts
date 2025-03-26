@@ -1,3 +1,4 @@
+
 export type ProjectCategory = 'mechatronics' | 'software' | 'ai-ml';
 
 export interface Project {
@@ -16,12 +17,12 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'mechatronics-robot',
-    title: 'Robotic Arm',
-    description: 'A fully autonomous robotic arm designed for warehouse navigation with obstacle avoidance and path planning capabilities.',
+    title: 'Autonomous Robot',
+    description: 'A fully autonomous robot designed for warehouse navigation with obstacle avoidance and path planning capabilities.',
     category: 'mechatronics',
     image: '/placeholder.svg',
-    technologies: ['Arduino', 'Autodesk Fusion', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: 'models/nean.obj',
+    technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
+    modelUrl: '/nean.obj',
     featured: true
   },
   {
@@ -40,7 +41,7 @@ export const projects: Project[] = [
     category: 'mechatronics',
     image: '/placeholder.svg',
     technologies: ['CAD Design', 'Microcontrollers', 'Servo Motors', 'EMG Sensors'],
-    modelUrl: 'prosthetic-hand.glb', // Just the filename, path is handled by ModelViewer
+    modelUrl: 'sample-model-url',
   },
   {
     id: 'software-portfolio',

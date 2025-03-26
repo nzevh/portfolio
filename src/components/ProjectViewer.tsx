@@ -21,7 +21,7 @@ const ProjectViewer = () => {
       setLoading(false);
     } else {
       // Project not found, redirect to projects page
-      setTimeout(() => navigate('/projects'), 100);
+      setTimeout(() => navigate('/projects'), 10);
     }
   }, [id, navigate]);
 

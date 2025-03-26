@@ -1,23 +1,19 @@
-import { useRef, useState, Suspense } from 'react';
-import { Canvas, useLoader } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
+import { useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Box } from '@react-three/drei';
 
 interface ModelViewerProps {
   modelUrl: string;
 }
 
-const Model = ({ modelUrl }: { modelUrl: string }) => {
-  // Ensure the model URL is correctly prefixed
-  const fullModelUrl = `/models/${modelUrl}`;
-  const gltf = useLoader(GLTFLoader, fullModelUrl);
-  return <primitive object={gltf.scene} scale={1} />;
-}
-
 const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 1000);
 
   return (
     <div className="relative w-full h-full">
@@ -26,9 +22,11 @@ const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
           <ambientLight intensity={0.5} />
           <directionalLight position={[1, 1, 1]} intensity={1} />
           
-          <Suspense fallback={null}>
-            <Model modelUrl={modelUrl} />
-          </Suspense>
+          {/* Simple 3D cube as a placeholder */}
+          {/* In a real implementation, you would load the 3D model from modelUrl */}
+          <Box args={[2, 2, 2]}>
+            <meshStandardMaterial color="#2563eb" metalness={0.3} roughness={0.4} />
+          </Box>
           
           <OrbitControls 
             enableDamping 
