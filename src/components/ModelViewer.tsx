@@ -5,9 +5,10 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 interface ModelViewerProps {
   modelUrl: string;
+  scale?: number;
 }
 
-const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
+const ModelViewer = ({ modelUrl, scale = 0.1 }: ModelViewerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [model, setModel] = useState<THREE.Group | null>(null);
@@ -35,7 +36,7 @@ const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
     <div className="relative w-full h-full bg-gray-200"> {/* Background color added here */}
       <div ref={containerRef} className="w-full h-full">
         <Canvas
-          camera={{ position: [0, 0, 5], fov: 75 }}
+          camera={{ position: [0, 0, 0], fov: 75 }}
           gl={{ antialias: true }}
           style={{ background: '#333333' }} // Light gray background for the 3D canvas
         >
@@ -44,7 +45,7 @@ const ModelViewer = ({ modelUrl }: ModelViewerProps) => {
 
           {/* Display model with textures and colors, or a simple cube if not loaded */}
           {model ? (
-            <primitive object={model} scale={0.5} />
+            <primitive object={model} scale={[scale, scale, scale]} />
           ) : (
             <Box args={[2, 2, 2]}>
               <meshStandardMaterial color="#2563eb" metalness={0.3} roughness={0.4} />
