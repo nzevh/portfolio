@@ -40,12 +40,12 @@ const ModelViewer = ({ modelUrl, scale = 0.1 }: ModelViewerProps) => {
           gl={{ antialias: true }}
           style={{ background: '#333333' }}  // Light gray background for the 3D canvas
         >
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.1} />
           <directionalLight position={[1, 1, 1]} intensity={0.35} />
 
           {/* Display model with textures and colors, or a simple cube if not loaded */}
           {model ? (
-            <primitive object={model} scale={[scale, scale, scale]} rotation={[Math.PI / 2, Math.PI / 2, 0]} />
+            <primitive object={model} scale={[scale, scale, scale]} rotation={[Math.PI / 2, Math.PI / 2, Math.PI / 2]} />
           ) : (
             <Box args={[2, 2, 2]}>
               <meshStandardMaterial color="#2563eb" metalness={0.3} roughness={0.4} />
