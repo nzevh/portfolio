@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -6,6 +5,13 @@ import { cn } from '@/lib/utils';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('theme') as 'light' | 'dark') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+    return 'light';
+  });
   const location = useLocation();
 
   useEffect(() => {
@@ -20,6 +26,21 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Theme effect
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -49,7 +70,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -63,6 +84,18 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
+          <button
+            onClick={toggleTheme}
+            className="ml-4 p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+          >
+            {theme === 'dark' ? (
+              <span role="img" aria-label="Light mode">☀️</span>
+            ) : (
+              <span role="img" aria-label="Dark mode">🌙</span>
+            )}
+          </button>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -105,6 +138,18 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="mt-2 p-2 rounded-full bg-secondary hover:bg-secondary/70 transition-colors w-max"
+              aria-label="Toggle dark mode"
+              title="Toggle dark mode"
+            >
+              {theme === 'dark' ? (
+                <span role="img" aria-label="Light mode">☀️</span>
+              ) : (
+                <span role="img" aria-label="Dark mode">🌙</span>
+              )}
+            </button>
           </nav>
         </div>
       </div>

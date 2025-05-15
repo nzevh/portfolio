@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
@@ -23,8 +22,8 @@ const About = () => {
               
               <div className="aspect-video w-full rounded-lg overflow-hidden mb-12">
                 <img 
-                  src="/placeholder.svg" 
-                  alt="John Doe" 
+                  src="/me.jpg" 
+                  alt="Arinze Adimora" 
                   className="h-full w-full object-cover object-center"
                 />
               </div>
