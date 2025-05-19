@@ -10,6 +10,7 @@ export interface Project {
   link?: string;
   githubLink?: string;
   modelUrl?: string; // for 3D models
+  textureUrl?: string; // for model textures
   featured?: boolean;
 }
 
@@ -19,28 +20,37 @@ export const projects: Project[] = [
     title: 'Autonomous Robot',
     description: 'A fully autonomous robot designed for warehouse navigation with obstacle avoidance and path planning capabilities.',
     category: 'mechatronics',
-    image: '/arm.png',
+    image: '/model_render/arm.png',
     technologies: ['Arduino', 'ROS', 'C++', 'Sensor Fusion'],
-    modelUrl: '/models/nean.glb', // Update this path to your actual 3D model
+    modelUrl: '/models/nean.glb',
     featured: true
-  },
-  {
-    id: 'mechatronics-drone',
-    title: 'Smart Drone System',
-    description: 'A custom-built drone with advanced stabilization and autonomous flight capabilities for aerial surveying.',
-    category: 'mechatronics',
-    image: '/slicer.png',
-    technologies: ['ESP32', 'IMU Sensors', 'Embedded Systems', 'Control Theory'],
-    modelUrl: '/models/robot.glb', // Update this path to your actual 3D model
   },
   {
     id: 'mechatronics-slicer',
     title: 'Onion Slicer Machine',
-    description: 'A low-cost prosthetic hand with advanced grip patterns and natural motion control.',
+    description: 'A low-cost onion slicer system for restaurants and food processing industries for cutting many bulbs of onions faster.',
     category: 'mechatronics',
-    image: '/slicer.png',
-    technologies: ['CAD Design', 'Microcontrollers', 'Servo Motors', 'EMG Sensors'],
-    modelUrl: '/models/slicer.glb', // Update this path to your actual 3D model
+    image: '/model_render/slicer.png',
+    technologies: ['CAD Design', '3D Printing', 'Arduino', 'Mechanical Design'],
+    modelUrl: '/models/slicer.glb',
+  },
+  {
+    id: 'mechatronics-stairs',
+    title: 'Automated Folding Stairs',
+    description: 'A unique staircase design that automatically adjusts its height and angle based on user preference and space constraints.',
+    category: 'mechatronics',
+    image: '/model_render/folding_stairs.jpg',
+    technologies: ['CAD Design', '3D Printing', 'Arduino', 'Mechanical Design'],
+    modelUrl: '/models/folding_stairs.glb',
+  },
+  {
+    id: 'mechatronics-vase',
+    title: 'Vase Design',
+    description: 'A 3D-printed vase with intricate designs, showcasing advanced CAD modeling and 3D printing techniques.',
+    category: 'mechatronics',
+    image: '/model_render/vase.png',
+    technologies: ['CAD Design', '3D Printing'],
+    modelUrl: '/models/vase.glb',
   },
   {
     id: 'software-portfolio',
@@ -49,26 +59,17 @@ export const projects: Project[] = [
     category: 'software',
     image: '/placeholder.svg',
     technologies: ['React', 'TypeScript', 'Three.js', 'Tailwind CSS'],
-    link: 'https://example.com',
-    githubLink: 'https://github.com/username/portfolio',
+    githubLink: 'https://github.com/thenzevhukwu/portfolio',
+  },
+  {
+    id: 'software-social-3d-app',
+    title: 'Social 3d Mobile Application',
+    description: 'A social media application with 3D avatars and environments, allowing users to interact in a virtual space.',
+    category: 'software',
+    image: '/model_render/threed.png',
+    technologies: ['React-Native', 'Expo', 'Clerk', 'Convex'],
+    githubLink: 'https://github.com/thenzevhukwu/threed',
     featured: true
-  },
-  {
-    id: 'software-cms',
-    title: 'Content Management System',
-    description: 'A full-stack CMS with user authentication, content creation, and administrative capabilities.',
-    category: 'software',
-    image: '/placeholder.svg',
-    technologies: ['Node.js', 'Express', 'MongoDB', 'React'],
-    githubLink: 'https://github.com/username/cms'
-  },
-  {
-    id: 'software-ecommerce',
-    title: 'E-commerce Platform',
-    description: 'A responsive e-commerce platform with product management, cart functionality, and payment processing.',
-    category: 'software',
-    image: '/placeholder.svg',
-    technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Styled Components']
   },
   {
     id: 'ai-ml-nlp',
@@ -106,7 +107,7 @@ export const skills = [
       'Control Systems',
       'CAD/CAM',
       'IoT Integration',
-      'Simulations',
+      'Simulation',
       'Sensor Integration',
       'Prototyping'
     ]
@@ -114,12 +115,12 @@ export const skills = [
   {
     category: 'Software Engineering',
     items: [
-      'Native app Development',
+      'React Native app Development',
       'React/Next.js',
       'TypeScript',
       'Node.js',
       'RESTful APIs',
-      'Database Design',
+      'Database Design'
     ]
   },
   {

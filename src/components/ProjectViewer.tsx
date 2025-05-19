@@ -107,7 +107,11 @@ const ProjectViewer = () => {
           <div className="rounded-lg border border-border overflow-hidden bg-card shadow-sm">
             {project.category === 'mechatronics' && project.modelUrl ? (
               <div className="aspect-square w-full">
-                <ModelViewer modelUrl={project.modelUrl} />
+                <ModelViewer
+                modelUrl={project.modelUrl!}
+                textureUrl={project.textureUrl}
+                scale={0.1}
+                />
               </div>
             ) : (
               <div className="aspect-video w-full">
