@@ -123,17 +123,22 @@ export const skills = [
       'Database Design'
     ]
   },
+
+  {/*
   {
     category: 'AI/ML',
     items: [
       'Machine Learning',
-      'Deep Learning',
+      'Deep Learning (Pytorch, JAX, TF, etc)',
+      'Imitation Learning',
       'Computer Vision',
+      'Robot simulations (Gazebo)',
       'Natural Language Processing',
-      'Data Analysis',
       'PyTorch/TensorFlow',
       'Reinforcement Learning',
-      'MLOps'
+      'Multi-GPU training'
     ]
   }
+    */}
+    
 ];

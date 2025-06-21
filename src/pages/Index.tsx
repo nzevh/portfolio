@@ -56,7 +56,7 @@ const Index = () => {
               <div className="animate-fade-in">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
                 <p className="text-muted-foreground max-w-2xl">
-                  A selection of my recent work spanning mechatronics, software development, and AI/ML.
+                  A selection of my recent work spanning mechatronics, software development.
                 </p>
               </div>
               <Link 

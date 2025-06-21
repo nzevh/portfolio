@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="text-xl font-semibold">Favour Arinze Adimora</Link>
             <p className="mt-2 text-sm text-muted-foreground">
-              Mechatronics Engineer & Software Developer specializing in robotics, full-stack applications, and AI/ML solutions.
+              Mechatronics Engineer & Software Developer specializing in robotics and AI integrations and native applications.
             </p>
           </div>
 
