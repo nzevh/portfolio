@@ -124,7 +124,7 @@ export const skills = [
     ]
   },
 
-  {/*
+  
   {
     category: 'AI/ML',
     items: [
@@ -139,6 +139,5 @@ export const skills = [
       'Multi-GPU training'
     ]
   }
-    */}
-    
+
 ];
