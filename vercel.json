@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "name": "portfolio",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "regions": [
+    "iad1"
+  ],
+  "functions": {
+    "app/**/*.{js,ts,jsx,tsx}": {
+      "maxDuration": 30
+    },
+    "pages/api/**/*.{js,ts}": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/resume.pdf",
+      "destination": "/docs/resume.pdf"
+    }
+  ],
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(folding-stairs|robotic-arm|slicer|sterling-engine)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/docs/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline"
+        }
+      ]
+    },
+    {
+      "source": "**/*.glb",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Content-Type",
+          "value": "model/gltf-binary"
+        }
+      ]
+    },
+    {
+      "source": "**/*.{png,jpg,jpeg,gif,webp,svg}",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "**/*.{pdf,docx}",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
+}
