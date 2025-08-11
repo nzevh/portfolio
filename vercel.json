@@ -78,7 +78,7 @@
       ]
     },
     {
-      "source": "**/*.glb",
+      "source": "/(.*)\\.glb$",
       "headers": [
         {
           "key": "Cache-Control",
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "source": "**/*.{png,jpg,jpeg,gif,webp,svg}",
+      "source": "/(.*)\\.(?:png|jpg|jpeg|gif|webp|svg)$",
       "headers": [
         {
           "key": "Cache-Control",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "source": "**/*.{pdf,docx}",
+      "source": "/(.*)\\.(?:pdf|docx)$",
       "headers": [
         {
           "key": "Cache-Control",
