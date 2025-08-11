@@ -1,8 +1,9 @@
 "use client"
 import { Canvas } from "@react-three/fiber"
-import { Center, ContactShadows, Environment, Html, OrbitControls, useGLTF, useTexture } from "@react-three/drei"
+import { Center, ContactShadows, Html, OrbitControls, useGLTF, useTexture } from "@react-three/drei"
 import { Suspense, useEffect, useMemo, useState } from "react"
 import { useAssetExists } from "@/hooks/use-asset-exists"
+import { LocalEnvironment } from "./local-environment"
 import * as THREE from "three"
 
 type ModelViewerProps = {
@@ -31,7 +32,7 @@ type TextureSet = {
   emissiveMap?: THREE.Texture
 }
 
-function ModelContent({ src = "/models/robot.glb", textures }: { src?: string; textures?: ModelViewerProps['textures'] }) {
+function ModelContent({ src = "/robotic-arm/arm-model.glb", textures }: { src?: string; textures?: ModelViewerProps['textures'] }) {
   const gltf = useGLTF(src)
   const ref = useMemo(() => new THREE.Group(), [])
   
@@ -50,9 +51,10 @@ function ModelContent({ src = "/models/robot.glb", textures }: { src?: string; t
 
   useEffect(() => {
     if (gltf?.scene) {
-      ref.clear()
-      // Clone the scene to avoid modifying the original
-      const scene = gltf.scene.clone()
+      try {
+        ref.clear()
+        // Clone the scene to avoid modifying the original
+        const scene = gltf.scene.clone()
       
       // Apply textures to all materials in the scene
       if (Object.keys(loadedTextures).length > 0) {
@@ -105,8 +107,11 @@ function ModelContent({ src = "/models/robot.glb", textures }: { src?: string; t
       const scale = targetSize / maxDim
       scene.scale.setScalar(scale)
       
-      // Center the model at origin
-      scene.position.copy(center.multiplyScalar(-scale))
+        // Center the model at origin
+        scene.position.copy(center.multiplyScalar(-scale))
+      } catch (error) {
+        console.warn('Error loading 3D model:', error)
+      }
     }
   }, [gltf, loadedTextures])
 
@@ -161,7 +166,9 @@ function FallbackModel({ textures }: { textures?: ModelViewerProps['textures'] }
 }
 
 // Preload common assets
-useGLTF.preload("/assets/3d/duck.glb")
+useGLTF.preload("/folding-stairs/stairs-model.glb")
+useGLTF.preload("/robotic-arm/arm-model.glb")
+useGLTF.preload("/slicer/slicer-model.glb")
 
 // Preload textures if they exist
 const preloadTextures = (textures?: ModelViewerProps['textures']) => {
@@ -175,7 +182,7 @@ const preloadTextures = (textures?: ModelViewerProps['textures']) => {
 }
 
 export default function ModelViewer({
-  src = "/assets/3d/duck.glb",
+  src = "/robotic-arm/arm-model.glb",
   alt = "3D model",
   className = "",
   bg = "#0a0a0a",
@@ -212,7 +219,7 @@ export default function ModelViewer({
             </Html>
           }
         >
-          <Environment preset="studio" />
+          <LocalEnvironment />
           {effectiveSrc ? (
             <ModelContent src={effectiveSrc} textures={textures} />
           ) : (

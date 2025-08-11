@@ -201,7 +201,6 @@ function StaticSculpture() {
       <ambientLight intensity={0.6} />
       <directionalLight position={[7, 9, 7]} intensity={1} castShadow />
       <directionalLight position={[-6, -5, -6]} intensity={0.35} />
-      <Environment preset="studio" />
       <mesh castShadow receiveShadow>
         <torusKnotGeometry args={[1.6, 0.5, 240, 36]} />
         <meshPhysicalMaterial
@@ -267,7 +266,6 @@ export default function PortfolioScene({
             </Html>
           }
         >
-          <Environment preset="studio" />
           {MODE === "orbits" ? (
             <OrbitsContent
               projects={visible}

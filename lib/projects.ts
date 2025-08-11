@@ -26,7 +26,7 @@ export const sampleProjects: Project[] = [
     tags: ["Fusion 360", "Mechanism", "Thermodynamics", "Prototype"],
     link: "#",
     image: "/stirling-engine-monochrome.png",
-    models: ["/models/robot.glb"],
+    models: ["/robotic-arm/arm-model.glb"],
     gallery: ["/placeholder-na4i8.png", "/stirling-engine-section-view-monochrome.png", "/stirling-engine-testbench-monochrome.png"],
   },
 
@@ -83,7 +83,7 @@ export const sampleProjects: Project[] = [
     tags: ["Fusion 360", "Mechanism", "Food Processing", "Ergonomics", "CAD", "FEA Analysis"],
     link: "#",
     image: "/slicer/slicer-1.png",
-    models: ["/slicer/slicer.glb"],
+    models: ["/slicer/slicer-model.glb"],
     gallery: [
       "/slicer/slicer-1.png",
       "/placeholder.svg?height=720&width=1280",
