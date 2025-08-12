@@ -1,13 +1,14 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Github, ExternalLink, Settings2, Linkedin, Twitter } from "lucide-react"
+import { Github, ExternalLink, Settings2, Linkedin, Twitter, Menu } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { useMediaQuery } from "@/hooks/use-mobile"
 import { Toaster } from "@/components/ui/toaster"
 
@@ -19,7 +20,7 @@ import { SafeLink } from "@/components/safe-link"
 import ResumeDownload from "@/components/resume-download"
 
 export default function Page() {
-  const [projects, setProjects] = useState<Project[]>(sampleProjects)
+  const [projects] = useState<Project[]>(sampleProjects)
   const [selected, setSelected] = useState<Project | null>(null)
   const isMobile = useMediaQuery()
   const router = useRouter()
@@ -33,20 +34,72 @@ export default function Page() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.06),transparent_30%),radial-gradient(circle_at_80%_60%,rgba(255,255,255,0.05),transparent_25%)]" />
 
       <header className="pointer-events-none absolute inset-x-0 top-0 z-20">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
-          <div className="pointer-events-auto flex items-center gap-3">
-            <Avatar className="h-8 w-8 border border-white/20 shadow-sm">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 sm:gap-4 px-3 py-4 sm:px-6 lg:px-8">
+          <div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
+            <Avatar className="h-7 w-7 sm:h-8 sm:w-8 border border-white/20 shadow-sm">
               <AvatarImage src="/images/profile-avatar.jpg" alt="Favour Adimora" />
-              <AvatarFallback className="bg-white/5 text-white/80 text-sm font-medium">FA</AvatarFallback>
+              <AvatarFallback className="bg-white/5 text-white/80 text-xs sm:text-sm font-medium">FA</AvatarFallback>
             </Avatar>
             <div>
-              <h1 className="text-xl font-semibold tracking-tight">Favour Adimora</h1>
-              <div className="text-sm uppercase tracking-widest text-white/60">Robotics Control Engineer</div>
+              <h1 className="text-lg sm:text-xl font-semibold tracking-tight">Favour Adimora</h1>
+              <div className="text-xs sm:text-sm uppercase tracking-widest text-white/60">Robotics Control Engineer</div>
             </div>
           </div>
 
-          <div className="pointer-events-auto hidden items-center gap-6 sm:flex">
-            <nav className="flex items-center gap-6 text-sm">
+          {/* Mobile menu dropdown */}
+          <div className="pointer-events-auto flex items-center sm:hidden">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="border-white/15 bg-white/5 text-white hover:bg-white/10 px-2">
+                  <Menu className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48 border-white/10 bg-black/90 text-white backdrop-blur-md">
+                <DropdownMenuItem asChild>
+                  <SafeLink href="/about" className="w-full text-white/80 hover:text-white cursor-pointer">
+                    About
+                  </SafeLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <SafeLink href="/contact" className="w-full text-white/80 hover:text-white cursor-pointer">
+                    Contact
+                  </SafeLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <SafeLink href="/resume" className="w-full text-white/80 hover:text-white cursor-pointer">
+                    Resume
+                  </SafeLink>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator className="bg-white/10" />
+                <DropdownMenuItem asChild>
+                  <SafeLink href={siteConfig.social.github} target="_blank" className="w-full text-white/80 hover:text-white cursor-pointer">
+                    <Github className="mr-2 h-4 w-4" />
+                    GitHub
+                  </SafeLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <SafeLink href={siteConfig.social.linkedin} target="_blank" className="w-full text-white/80 hover:text-white cursor-pointer">
+                    <Linkedin className="mr-2 h-4 w-4" />
+                    LinkedIn
+                  </SafeLink>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <SafeLink href={siteConfig.social.twitter} target="_blank" className="w-full text-white/80 hover:text-white cursor-pointer">
+                    <Twitter className="mr-2 h-4 w-4" />
+                    Twitter
+                  </SafeLink>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator className="bg-white/10" />
+                <DropdownMenuItem className="p-0">
+                  <ResumeDownload className="w-full bg-white text-black hover:bg-zinc-200 text-sm justify-start h-8" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
+          {/* Desktop menu */}
+          <div className="pointer-events-auto hidden items-center gap-4 lg:gap-6 sm:flex">
+            <nav className="flex items-center gap-4 lg:gap-6 text-sm">
               <SafeLink href="/about" className="text-white/80 hover:text-white">
                 About
               </SafeLink>

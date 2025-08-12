@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { Project } from "@/lib/projects"
 import { cn } from "@/lib/utils"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 type Props = {
   project: Project
@@ -32,6 +33,7 @@ export default function OverlayProjectCard({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const autoHideTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const isMobile = useIsMobile()
 
   // Keep the card inside viewport
   const style: React.CSSProperties = {
@@ -101,8 +103,9 @@ export default function OverlayProjectCard({
       ref={ref}
       style={style}
       className={cn(
-        "pointer-events-auto absolute z-30 w-[320px] select-none",
+        "pointer-events-auto absolute z-30 select-none",
         "animate-in fade-in-0 zoom-in-95 duration-150",
+        isMobile ? "w-[280px]" : "w-[320px]",
         className,
       )}
       onMouseEnter={handleMouseEnter}
@@ -112,32 +115,32 @@ export default function OverlayProjectCard({
     >
       <Card className="border-white/10 bg-black/80 backdrop-blur-md text-white shadow-xl">
         <CardHeader className="pb-2">
-          <CardTitle className="text-base">{project.title}</CardTitle>
+          <CardTitle className={isMobile ? "text-sm" : "text-base"}>{project.title}</CardTitle>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            {project.tags?.slice(0, 4).map((t) => (
-              <Badge key={t} variant="outline" className="border-white/25 text-white/85">
+            {project.tags?.slice(0, isMobile ? 3 : 4).map((t) => (
+              <Badge key={t} variant="outline" className="border-white/25 text-white/85 text-xs">
                 {t}
               </Badge>
             ))}
           </div>
         </CardHeader>
-        <CardContent className="space-y-3">
+        <CardContent className={isMobile ? "space-y-2" : "space-y-3"}>
           <section>
             <h4 className="text-[11px] uppercase tracking-widest text-white/60">Problem</h4>
-            <p className="mt-1 line-clamp-2 text-sm text-white/90">{project.problem || "—"}</p>
+            <p className={cn("mt-1 line-clamp-2 text-white/90", isMobile ? "text-xs" : "text-sm")}>{project.problem || "—"}</p>
           </section>
           <section>
             <h4 className="text-[11px] uppercase tracking-widest text-white/60">Method</h4>
-            <p className="mt-1 line-clamp-2 text-sm text-white/90">{project.method || "—"}</p>
+            <p className={cn("mt-1 line-clamp-2 text-white/90", isMobile ? "text-xs" : "text-sm")}>{project.method || "—"}</p>
           </section>
           <section>
             <h4 className="text-[11px] uppercase tracking-widest text-white/60">Result</h4>
-            <p className="mt-1 line-clamp-2 text-sm text-white/90">{project.result || "—"}</p>
+            <p className={cn("mt-1 line-clamp-2 text-white/90", isMobile ? "text-xs" : "text-sm")}>{project.result || "—"}</p>
           </section>
           <div className="pt-1">
             <Button
               size="sm"
-              className="w-full bg-white text-black hover:bg-zinc-200"
+              className={cn("w-full bg-white text-black hover:bg-zinc-200", isMobile ? "text-xs" : "text-sm")}
               onClick={() => onOpenProject?.(project)}
             >
               View project

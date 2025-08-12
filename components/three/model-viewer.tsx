@@ -1,10 +1,11 @@
 "use client"
 
 import React, { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
-import { Canvas, useThree } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import { Center, ContactShadows, Environment, Html, OrbitControls, useGLTF } from "@react-three/drei"
 import * as THREE from "three"
 import { useAssetExists } from "@/hooks/use-asset-exists"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 type ModelViewerProps = { src?: string; alt?: string; className?: string; bg?: string }
 
@@ -96,17 +97,18 @@ export default function ModelViewer({
 }: ModelViewerProps) {
   const exists = useAssetExists(src)
   const [effectiveSrc, setEffectiveSrc] = useState<string | null>(null)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     setEffectiveSrc(exists ? src : null)
   }, [exists, src])
 
   return (
-    <div className={`w-full h-[60vh] rounded-xl border border-white/10 overflow-hidden ${className}`}>
+    <div className={`w-full ${isMobile ? 'h-[50vh]' : 'h-[60vh]'} rounded-xl border border-white/10 overflow-hidden ${className}`}>
       <Canvas
         shadows
-        dpr={[1, 2]}
-        camera={{ position: [0, 1, 3.5], fov: 50 }}
+        dpr={[1, isMobile ? 1.5 : 2]}
+        camera={{ position: [0, 1, isMobile ? 4 : 3.5], fov: isMobile ? 55 : 50 }}
         onCreated={({ gl }) => {
           gl.outputColorSpace = THREE.SRGBColorSpace
         }}
@@ -125,7 +127,12 @@ export default function ModelViewer({
           {effectiveSrc ? <ModelContent src={effectiveSrc} /> : <FallbackModel />}
           <ContactShadows position={[0, -1.4, 0]} opacity={0.25} blur={2.2} scale={10} />
         </Suspense>
-        <OrbitControls enablePan={false} minDistance={1.6} maxDistance={8} />
+        <OrbitControls 
+          enablePan={false} 
+          minDistance={isMobile ? 2 : 1.6} 
+          maxDistance={isMobile ? 10 : 8}
+          enableZoom={!isMobile}
+        />
       </Canvas>
       <span className="sr-only">{alt}</span>
     </div>

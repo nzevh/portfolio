@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 
-export const useMediaQuery = () => {
+export const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -22,3 +22,6 @@ export const useMediaQuery = () => {
 
   return isMobile
 }
+
+// Keep the old export for backward compatibility
+export const useMediaQuery = useIsMobile

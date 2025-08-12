@@ -11,12 +11,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import ModelViewer from "@/components/three/model-viewer"
 import type { Project } from "@/lib/projects"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 type Props = {
   project: Project
 }
 
 export default function ProjectDetails({ project }: Props) {
+  const isMobile = useIsMobile()
   const models = useMemo(
     () => (project.models && project.models.length ? project.models : ["/assets/3d/duck.glb"]),
     [project.models],
@@ -34,13 +36,13 @@ export default function ProjectDetails({ project }: Props) {
   const [lightbox, setLightbox] = useState<{ open: boolean; src?: string }>({ open: false })
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 text-white">
+    <div className={`mx-auto w-full max-w-6xl pb-16 text-white ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'}`}>
       {/* Title + Tags */}
-      <div className="mb-6">
-        <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">{project.title}</h1>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {project.tags?.map((t) => (
-            <Badge key={t} variant="outline" className="border-white/30 bg-transparent text-white/85">
+      <div className={isMobile ? "mb-4" : "mb-6"}>
+        <h1 className={`text-balance font-semibold tracking-tight ${isMobile ? 'text-2xl' : 'text-3xl sm:text-4xl'}`}>{project.title}</h1>
+        <div className={`flex flex-wrap gap-2 ${isMobile ? 'mt-2' : 'mt-3'}`}>
+          {project.tags?.slice(0, isMobile ? 6 : undefined).map((t) => (
+            <Badge key={t} variant="outline" className={`border-white/30 bg-transparent text-white/85 ${isMobile ? 'text-xs' : ''}`}>
               {t}
             </Badge>
           ))}
@@ -48,25 +50,26 @@ export default function ProjectDetails({ project }: Props) {
       </div>
 
       {/* 3D + Info */}
-      <div className="grid gap-8 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+      <div className={`grid ${isMobile ? 'gap-6' : 'gap-8 lg:grid-cols-3'}`}>
+        <div className={isMobile ? '' : 'lg:col-span-2'}>
           <Tabs defaultValue="model" className="w-full">
-            <TabsList className="bg-white/5">
-              <TabsTrigger value="model">3D Model</TabsTrigger>
-              <TabsTrigger value="gallery">Images</TabsTrigger>
+            <TabsList className={`bg-white/5 ${isMobile ? 'w-full' : ''}`}>
+              <TabsTrigger value="model" className={isMobile ? 'flex-1 text-sm' : ''}>3D Model</TabsTrigger>
+              <TabsTrigger value="gallery" className={isMobile ? 'flex-1 text-sm' : ''}>Images</TabsTrigger>
             </TabsList>
-            <TabsContent value="model" className="mt-4">
+            <TabsContent value="model" className={isMobile ? "mt-3" : "mt-4"}>
               <ModelViewer src={models[Math.min(modelIndex, models.length - 1)]} alt={project.title + " 3D model"} />
               {models.length > 1 ? (
-                <div className="mt-3 flex flex-wrap items-center gap-2">
+                <div className={`flex flex-wrap items-center gap-2 ${isMobile ? 'mt-2' : 'mt-3'}`}>
                   {models.map((m, idx) => (
                     <Button
                       key={m + idx}
                       variant={idx === modelIndex ? "default" : "outline"}
+                      size={isMobile ? "sm" : "default"}
                       className={
                         idx === modelIndex
-                          ? "bg-white text-black hover:bg-zinc-200"
-                          : "border-white/20 bg-transparent text-white"
+                          ? `bg-white text-black hover:bg-zinc-200 ${isMobile ? 'text-xs' : ''}`
+                          : `border-white/20 bg-transparent text-white ${isMobile ? 'text-xs' : ''}`
                       }
                       onClick={() => setModelIndex(idx)}
                     >
@@ -76,8 +79,8 @@ export default function ProjectDetails({ project }: Props) {
                 </div>
               ) : null}
             </TabsContent>
-            <TabsContent value="gallery" className="mt-4">
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <TabsContent value="gallery" className={isMobile ? "mt-3" : "mt-4"}>
+              <div className={`grid gap-3 ${isMobile ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-3'}`}>
                 {images.map((src, i) => (
                   <button
                     key={src + i}
@@ -88,7 +91,7 @@ export default function ProjectDetails({ project }: Props) {
                     <img
                       src={src || "/placeholder.svg"}
                       alt={(project.title || "Project") + " image " + (i + 1)}
-                      className="h-36 w-full object-cover opacity-95 grayscale transition group-hover:opacity-100"
+                      className={`w-full object-cover opacity-95 grayscale transition group-hover:opacity-100 ${isMobile ? 'h-28' : 'h-36'}`}
                     />
                   </button>
                 ))}
@@ -97,30 +100,30 @@ export default function ProjectDetails({ project }: Props) {
           </Tabs>
         </div>
 
-        <aside className="lg:col-span-1">
-          <div className="sticky top-6 space-y-6 rounded-xl border border-white/10 bg-white/5 p-4">
-            <div className="space-y-4">
+        <aside className={isMobile ? '' : 'lg:col-span-1'}>
+          <div className={`${isMobile ? 'mt-6' : 'sticky top-6'} rounded-xl border border-white/10 bg-white/5 ${isMobile ? 'p-3 space-y-4' : 'p-4 space-y-6'}`}>
+            <div className={isMobile ? "space-y-3" : "space-y-4"}>
               <section>
-                <h2 className="text-sm uppercase tracking-widest text-white/70">Problem</h2>
-                <p className="mt-3 text-white/90">{project.problem || "—"}</p>
+                <h2 className={`uppercase tracking-widest text-white/70 ${isMobile ? 'text-xs' : 'text-sm'}`}>Problem</h2>
+                <p className={`text-white/90 ${isMobile ? 'mt-2 text-sm' : 'mt-3'}`}>{project.problem || "—"}</p>
               </section>
               <Separator className="bg-white/10" />
               <section>
-                <h2 className="text-sm uppercase tracking-widest text-white/70">Method</h2>
-                <p className="mt-3 whitespace-pre-line text-white/90">{project.method || "—"}</p>
+                <h2 className={`uppercase tracking-widest text-white/70 ${isMobile ? 'text-xs' : 'text-sm'}`}>Method</h2>
+                <p className={`whitespace-pre-line text-white/90 ${isMobile ? 'mt-2 text-sm' : 'mt-3'}`}>{project.method || "—"}</p>
               </section>
               <Separator className="bg-white/10" />
               <section>
-                <h2 className="text-sm uppercase tracking-widest text-white/70">Result</h2>
-                <p className="mt-3 text-white/90">{project.result || "—"}</p>
+                <h2 className={`uppercase tracking-widest text-white/70 ${isMobile ? 'text-xs' : 'text-sm'}`}>Result</h2>
+                <p className={`text-white/90 ${isMobile ? 'mt-2 text-sm' : 'mt-3'}`}>{project.result || "—"}</p>
               </section>
             </div>
 
             <div className="space-y-2">
               {project.link ? (
                 <Link href={project.link} target="_blank" className="block">
-                  <Button className="w-full bg-white text-black hover:bg-zinc-200">
-                    <ExternalLink className="mr-2 h-4 w-4" />
+                  <Button className={`w-full bg-white text-black hover:bg-zinc-200 ${isMobile ? 'text-sm' : ''}`}>
+                    <ExternalLink className={`${isMobile ? 'mr-1' : 'mr-2'} h-4 w-4`} />
                     External Link
                   </Button>
                 </Link>

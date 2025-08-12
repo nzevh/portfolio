@@ -1,7 +1,7 @@
 "use client"
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { Billboard, Environment, Html, OrbitControls, Sparkles, Trail, ContactShadows } from "@react-three/drei"
+import { Billboard, Html, OrbitControls, Sparkles, Trail, ContactShadows } from "@react-three/drei"
 import { Suspense, useMemo, useRef, useState, useCallback } from "react"
 import type { Project } from "@/lib/projects"
 import * as THREE from "three"
