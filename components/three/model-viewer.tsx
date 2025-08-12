@@ -1,240 +1,131 @@
 "use client"
-import { Canvas } from "@react-three/fiber"
-import { Center, ContactShadows, Html, OrbitControls, useGLTF, useTexture } from "@react-three/drei"
-import { Suspense, useEffect, useMemo, useState } from "react"
-import { useAssetExists } from "@/hooks/use-asset-exists"
-import { LocalEnvironment } from "./local-environment"
+
+import React, { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
+import { Canvas, useThree } from "@react-three/fiber"
+import { Center, ContactShadows, Environment, Html, OrbitControls, useGLTF } from "@react-three/drei"
 import * as THREE from "three"
+import { useAssetExists } from "@/hooks/use-asset-exists"
 
-type ModelViewerProps = {
-  src?: string
-  alt?: string
-  className?: string
-  bg?: string
-  textures?: {
-    map?: string
-    normalMap?: string
-    roughnessMap?: string
-    metalnessMap?: string
-    aoMap?: string
-    displacementMap?: string
-    emissiveMap?: string
-  }
-}
+type ModelViewerProps = { src?: string; alt?: string; className?: string; bg?: string }
 
-type TextureSet = {
-  map?: THREE.Texture
-  normalMap?: THREE.Texture
-  roughnessMap?: THREE.Texture
-  metalnessMap?: THREE.Texture
-  aoMap?: THREE.Texture
-  displacementMap?: THREE.Texture
-  emissiveMap?: THREE.Texture
-}
-
-function ModelContent({ src = "/robotic-arm/arm-model.glb", textures }: { src?: string; textures?: ModelViewerProps['textures'] }) {
-  const gltf = useGLTF(src)
-  const ref = useMemo(() => new THREE.Group(), [])
-  
-  // Load textures using useTexture hook
-  const loadedTextures = useTexture(
-    textures ? {
-      ...(textures.map && { map: textures.map }),
-      ...(textures.normalMap && { normalMap: textures.normalMap }),
-      ...(textures.roughnessMap && { roughnessMap: textures.roughnessMap }),
-      ...(textures.metalnessMap && { metalnessMap: textures.metalnessMap }),
-      ...(textures.aoMap && { aoMap: textures.aoMap }),
-      ...(textures.displacementMap && { displacementMap: textures.displacementMap }),
-      ...(textures.emissiveMap && { emissiveMap: textures.emissiveMap }),
-    } : {}
-  ) as TextureSet
-
-  useEffect(() => {
-    if (gltf?.scene) {
-      try {
-        ref.clear()
-        // Clone the scene to avoid modifying the original
-        const scene = gltf.scene.clone()
-      
-      // Apply textures to all materials in the scene
-      if (Object.keys(loadedTextures).length > 0) {
-        scene.traverse((child) => {
-          if (child instanceof THREE.Mesh && child.material) {
-            // Handle both single materials and material arrays
-            const materials = Array.isArray(child.material) ? child.material : [child.material]
-            
-            materials.forEach((material) => {
-              if (material instanceof THREE.MeshStandardMaterial || 
-                  material instanceof THREE.MeshPhysicalMaterial ||
-                  material instanceof THREE.MeshBasicMaterial ||
-                  material instanceof THREE.MeshLambertMaterial ||
-                  material instanceof THREE.MeshPhongMaterial) {
-                
-                // Apply textures to material
-                Object.entries(loadedTextures).forEach(([key, texture]) => {
-                  if (texture && key in material) {
-                    // Configure texture properties for better quality
-                    texture.wrapS = texture.wrapT = THREE.RepeatWrapping
-                    texture.generateMipmaps = true
-                    texture.minFilter = THREE.LinearMipmapLinearFilter
-                    texture.magFilter = THREE.LinearFilter
-                    
-                    // Apply the texture to the material
-                    ;(material as any)[key] = texture
-                  }
-                })
-                
-                // Update material to reflect texture changes
-                material.needsUpdate = true
-              }
-            })
-          }
-        })
-      }
-      
-      ref.add(scene)
-      
-      // Compute bounding box for more accurate fitting
-      const box = new THREE.Box3().setFromObject(scene)
-      const size = box.getSize(new THREE.Vector3())
-      const center = box.getCenter(new THREE.Vector3())
-      
-      // Get the maximum dimension to ensure the model fits in all directions
-      const maxDim = Math.max(size.x, size.y, size.z)
-      
-      // Scale to fit within a target size (adjust this value to control how much of the viewport the model fills)
-      const targetSize = 2.0 // Adjust this to make model bigger (higher) or smaller (lower)
-      const scale = targetSize / maxDim
-      scene.scale.setScalar(scale)
-      
-        // Center the model at origin
-        scene.position.copy(center.multiplyScalar(-scale))
-      } catch (error) {
-        console.warn('Error loading 3D model:', error)
-      }
+function prepareMaterial(mat: THREE.Material | THREE.Material[]) {
+  const apply = (m: any) => {
+    m.needsUpdate = true
+    if (m.map) {
+      (m.map as any).colorSpace = THREE.SRGBColorSpace
     }
-  }, [gltf, loadedTextures])
-
-  return <primitive object={ref} />
+    if (m.emissiveMap) {
+      (m.emissiveMap as any).colorSpace = THREE.SRGBColorSpace
+    }
+    if (m.envMap) {
+      m.envMap.mapping = THREE.EquirectangularReflectionMapping
+    }
+    if (m.isMeshPhysicalMaterial || m.isMeshStandardMaterial) {
+      if (typeof m.envMapIntensity === "undefined") m.envMapIntensity = 1
+    }
+  }
+  Array.isArray(mat) ? mat.forEach(apply) : apply(mat)
 }
 
-function FallbackModel({ textures }: { textures?: ModelViewerProps['textures'] }) {
-  // Load textures for fallback model if provided
-  const loadedTextures = useTexture(
-    textures ? {
-      ...(textures.map && { map: textures.map }),
-      ...(textures.normalMap && { normalMap: textures.normalMap }),
-      ...(textures.roughnessMap && { roughnessMap: textures.roughnessMap }),
-      ...(textures.metalnessMap && { metalnessMap: textures.metalnessMap }),
-      ...(textures.aoMap && { aoMap: textures.aoMap }),
-    } : {}
-  ) as TextureSet
+function autoFitToFrame(obj: THREE.Object3D, padding = 1.25, target = 1.6) {
+  const box = new THREE.Box3().setFromObject(obj)
+  if (box.isEmpty()) return
+  const size = box.getSize(new THREE.Vector3())
+  const center = box.getCenter(new THREE.Vector3())
+  const maxDim = Math.max(size.x, size.y, size.z)
+  const scale = (target / maxDim) * padding
+  obj.scale.setScalar(scale)
+  const newCenter = center.multiplyScalar(scale)
+  obj.position.sub(newCenter)
+}
 
-  const material = useMemo(() => {
-    const baseMaterial = new THREE.MeshPhysicalMaterial({
-      color: "#e5e5e5",
-      metalness: 0.6,
-      roughness: 0.2,
-      clearcoat: 1,
-      clearcoatRoughness: 0.25,
-    })
+function ModelContent({ src }: { src: string }) {
+  const gltf = useGLTF(src) as any
+  const ref = useRef<THREE.Group>(null)
 
-    // Apply loaded textures to fallback material
-    Object.entries(loadedTextures).forEach(([key, texture]) => {
-      if (texture && key in baseMaterial) {
-        // Configure texture properties
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping
-        texture.generateMipmaps = true
-        texture.minFilter = THREE.LinearMipmapLinearFilter
-        texture.magFilter = THREE.LinearFilter
-        
-        ;(baseMaterial as any)[key] = texture
+  useLayoutEffect(() => {
+    const scene = gltf?.scene
+    if (!scene || !ref.current) return
+    scene.traverse((child: any) => {
+      if (child.isMesh) {
+        child.castShadow = child.receiveShadow = true
+        prepareMaterial(child.material)
       }
     })
+    const container = ref.current
+    container.clear()
+    const inst = scene.clone(true)
+    container.add(inst)
+    autoFitToFrame(inst)
+  }, [gltf])
 
-    return baseMaterial
-  }, [loadedTextures])
+  return <group ref={ref} />
+}
 
+function FallbackModel() {
+  const mat = useMemo(
+    () =>
+      new THREE.MeshPhysicalMaterial({
+        color: "#e5e5e5",
+        metalness: 0.6,
+        roughness: 0.2,
+        clearcoat: 1,
+        clearcoatRoughness: 0.25,
+      }),
+    [],
+  )
   return (
     <Center>
       <mesh castShadow receiveShadow>
         <torusKnotGeometry args={[0.7, 0.25, 200, 32]} />
-        <primitive object={material} attach="material" />
+        <primitive object={mat} attach="material" />
       </mesh>
     </Center>
   )
 }
 
-// Preload common assets
 useGLTF.preload("/folding-stairs/stairs-model.glb")
 useGLTF.preload("/robotic-arm/arm-model.glb")
 useGLTF.preload("/slicer/slicer-model.glb")
 
-// Preload textures if they exist
-const preloadTextures = (textures?: ModelViewerProps['textures']) => {
-  if (textures) {
-    Object.values(textures).forEach(url => {
-      if (url) {
-        useTexture.preload(url)
-      }
-    })
-  }
-}
-
 export default function ModelViewer({
-  src = "/robotic-arm/arm-model.glb",
+  src = "/folding-stairs/stairs-model.glb",
   alt = "3D model",
   className = "",
   bg = "#0a0a0a",
-  textures,
 }: ModelViewerProps) {
   const exists = useAssetExists(src)
   const [effectiveSrc, setEffectiveSrc] = useState<string | null>(null)
 
-  // Preload textures when component mounts
   useEffect(() => {
-    preloadTextures(textures)
-  }, [textures])
-
-  useEffect(() => {
-    if (exists === true) setEffectiveSrc(src)
-    if (exists === false) setEffectiveSrc(null)
+    setEffectiveSrc(exists ? src : null)
   }, [exists, src])
 
   return (
     <div className={`w-full h-[60vh] rounded-xl border border-white/10 overflow-hidden ${className}`}>
       <Canvas
-        camera={{ position: [0, 0, 4], fov: 45 }}
+        shadows
         dpr={[1, 2]}
-        gl={{ antialias: true }}
-        className="bg-[linear-gradient(to_bottom,#0a0a0a,#000000)]"
+        camera={{ position: [0, 1, 3.5], fov: 50 }}
+        onCreated={({ gl }) => {
+          gl.outputColorSpace = THREE.SRGBColorSpace
+        }}
       >
         <color attach="background" args={[bg]} />
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} intensity={0.9} />
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[5, 5, 5]} intensity={0.9} castShadow />
         <Suspense
           fallback={
-            <Html>
+            <Html center>
               <div className="rounded bg-white/10 px-3 py-1 text-sm text-white/80">Loading 3D model…</div>
             </Html>
           }
         >
-          <LocalEnvironment />
-          {effectiveSrc ? (
-            <ModelContent src={effectiveSrc} textures={textures} />
-          ) : (
-            <FallbackModel textures={textures} />
-          )}
+          <Environment preset="studio" />
+          {effectiveSrc ? <ModelContent src={effectiveSrc} /> : <FallbackModel />}
           <ContactShadows position={[0, -1.4, 0]} opacity={0.25} blur={2.2} scale={10} />
         </Suspense>
-        <OrbitControls 
-          target={[0, 0, 0]} 
-          enablePan={false} 
-          minDistance={2.5} 
-          maxDistance={10} 
-          autoRotate 
-          autoRotateSpeed={0.5} 
-        />
+        <OrbitControls enablePan={false} minDistance={1.6} maxDistance={8} />
       </Canvas>
       <span className="sr-only">{alt}</span>
     </div>
